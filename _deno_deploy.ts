@@ -14,11 +14,7 @@ const server = site.getServer();
 const watcher = site.getWatcher();
 
 watcher.addEventListener("change", (event) => {
-  const files = event.files!;
-
-  // Pause the while updating the site
-  watcher.pause();
-  return site.update(files).finally(() => watcher.resume());
+  return site.update(event.files!);
 });
 
 server.use(
@@ -31,4 +27,5 @@ server.use(
   noCors(),
 );
 
+server.options.port = 8000;
 server.start();

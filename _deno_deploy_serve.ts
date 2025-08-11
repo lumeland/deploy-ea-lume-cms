@@ -18,9 +18,7 @@ const server = site.getServer();
 const watcher = site.getWatcher();
 
 watcher.addEventListener("change", async (event) => {
-  console.log("File changed", event.files);
   await site.update(event.files!);
-  console.log("Site updated");
 });
 
 server.use(
@@ -33,7 +31,6 @@ server.use(
   noCors(),
 );
 
-site.addEventListener("afterUpdate", () => console.log("Site after update"));
-
 server.options.port = 8000;
+watcher.start();
 server.start();

@@ -1,8 +1,10 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@cef9d9458268ecfa058efd4bbb234a935ce3f7dc/",
+    "_lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@cef9d9458268ecfa058efd4bbb234a935ce3f7dc/",
+    "lume/": "../lume/",
     "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.12/jsx-runtime.ts",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@b439433be8a45a729b7a663a0a337a9a38bf8831/"
+    "_lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@b439433be8a45a729b7a663a0a337a9a38bf8831/",
+    "lume/cms/": "../cms/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",

@@ -6,6 +6,8 @@ import { SiteWatcher } from "lume/core/watcher.ts";
 import cms from "./_cms.ts";
 import site from "./_config.ts";
 
+site.options.location = new URL("https://deploy-ea-lume-cms.oscarotero.deno.net");
+
 site.use(lumeCms({ cms }));
 
 await site.build();

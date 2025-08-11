@@ -6,7 +6,9 @@ import { SiteWatcher } from "lume/core/watcher.ts";
 import cms from "./_cms.ts";
 import site from "./_config.ts";
 
-site.options.location = new URL("https://deploy-ea-lume-cms.oscarotero.deno.net");
+site.options.location = new URL(
+  "https://deploy-ea-lume-cms.oscarotero.deno.net",
+);
 
 site.use(lumeCms({ cms }));
 
@@ -16,7 +18,9 @@ const server = site.getServer();
 const watcher = site.getWatcher();
 
 watcher.addEventListener("change", async (event) => {
+  console.log("File changed", event.files);
   await site.update(event.files!);
+  console.log("Site updated");
 });
 
 server.use(
@@ -28,6 +32,8 @@ server.use(
   noCache(),
   noCors(),
 );
+
+site.addEventListener("afterUpdate", () => console.log("Site after update"));
 
 server.options.port = 8000;
 server.start();

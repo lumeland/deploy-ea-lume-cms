@@ -10,6 +10,10 @@ site.options.location = new URL(
   "https://deploy-ea-lume-cms.oscarotero.deno.net",
 );
 
+if (!site.debugBar) {
+  site.initDebugBar();
+}
+
 site.use(lumeCms({ cms }));
 
 await site.build();

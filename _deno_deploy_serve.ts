@@ -13,8 +13,8 @@ await site.build();
 const server = site.getServer();
 const watcher = site.getWatcher();
 
-watcher.addEventListener("change", (event) => {
-  return site.update(event.files!);
+watcher.addEventListener("change", async (event) => {
+  await site.update(event.files!);
 });
 
 server.use(

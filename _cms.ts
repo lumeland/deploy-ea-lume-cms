@@ -1,7 +1,7 @@
 import lumeCMS from "lume/cms/mod.ts";
 
 const cms = lumeCMS({
-  site: {}
+  site: {},
 });
 
 cms.document({
@@ -10,7 +10,7 @@ cms.document({
   fields: [
     "title: text",
     "content: markdown",
-  ]
+  ],
 });
 
 cms.git();
